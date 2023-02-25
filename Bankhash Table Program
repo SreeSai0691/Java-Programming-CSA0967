@@ -1,0 +1,24 @@
+import java.util.Hashtable;
+
+public class BankHashTable {
+
+    public static void main(String[] args) {
+        
+        // Create a HashTable to store bank details
+        Hashtable<Integer, String> bankTable = new Hashtable<Integer, String>();
+        
+        // Add 3 records
+        bankTable.put(123456, "John Doe");
+        bankTable.put(234567, "Jane Smith");
+        bankTable.put(345678, "Bob Johnson");
+        
+        // Display the size of HashTable
+        System.out.println("Size of the HashTable: " + bankTable.size());
+        
+        // Clear the HashTable
+        bankTable.clear();
+        System.out.println("HashTable after clearing: " + bankTable);
+        
+    }
+
+}
