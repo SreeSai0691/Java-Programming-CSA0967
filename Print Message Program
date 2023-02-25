@@ -1,0 +1,29 @@
+class ParentClass {
+    public void printMessage() {
+        System.out.println("This is parent class");
+    }
+}
+
+class ChildClass extends ParentClass {
+    public void printMessage() {
+        System.out.println("This is child class");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object for parent class
+        ParentClass parent = new ParentClass();
+        // Call method of parent class by object of parent class
+        parent.printMessage();
+
+        // Create an object for child class
+        ChildClass child = new ChildClass();
+        // Call method of child class by object of child class
+        child.printMessage();
+
+        // Call method of parent class by object of child class
+        ParentClass childAsParent = new ChildClass();
+        childAsParent.printMessage();
+    }
+}
