@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+interface Marks {
+    public void getMarks();
+}
+
+interface Results {
+    public void displayResults();
+}
+
+class Student implements Marks, Results {
+    int python, cprog, maths, physics, chemistry, ethics;
+    double total, aggregate;
+    String grade;
+
+    public void getMarks() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the marks in python: ");
+        python = sc.nextInt();
+        System.out.print("Enter the marks in c programming: ");
+        cprog = sc.nextInt();
+        System.out.print("Enter the marks in Mathematics: ");
+        maths = sc.nextInt();
+        System.out.print("Enter the marks in Physics: ");
+        physics = sc.nextInt();
+        System.out.print("Enter the marks in Chemistry: ");
+        chemistry = sc.nextInt();
+        System.out.print("Enter the marks in Professional Ethics: ");
+        ethics = sc.nextInt();
+        sc.close();
+    }
+
+    public void calculate() {
+        total = python + cprog + maths + physics + chemistry + ethics;
+        aggregate = total / 6.0;
+        if (aggregate > 75) {
+            grade = "DISTINCTION";
+        } else if (aggregate >= 60 && aggregate <= 75) {
+            grade = "FIRST DIVISION";
+        } else if (aggregate >= 50 && aggregate < 60) {
+            grade = "SECOND DIVISION";
+        } else if (aggregate >= 40 && aggregate < 50) {
+            grade = "THIRD DIVISION";
+        } else {
+            grade = "FAIL";
+        }
+    }
+
+    public void displayResults() {
+        System.out.println("Total= " + total);
+        System.out.println("Aggregate = " + aggregate);
+        System.out.println("Class: " + grade);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.getMarks();
+        s.calculate();
+        s.displayResults();
+    }
+}
