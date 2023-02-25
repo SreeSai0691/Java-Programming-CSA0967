@@ -1,0 +1,30 @@
+import java.util.HashMap;
+
+public class Bank {
+    private static HashMap<String, Double> interestRates = new HashMap<String, Double>();
+    
+    static {
+        // Initialize interest rates for each bank
+        interestRates.put("SBI", 8.4);
+        interestRates.put("ICICI", 7.3);
+        interestRates.put("AXIS", 9.7);
+    }
+    
+    public static double getInterestRate(String bankName) {
+        // Retrieve interest rate for given bank name
+        if (interestRates.containsKey(bankName)) {
+            return interestRates.get(bankName);
+        } else {
+            throw new IllegalArgumentException("Invalid bank name");
+        }
+    }
+    
+    public static void main(String[] args) {
+        // Sample usage
+        System.out.println("SBI: " + getInterestRate("SBI"));
+        System.out.println("ICICI: " + getInterestRate("ICICI"));
+        System.out.println("AXIS: " + getInterestRate("AXIS"));
+        System.out.println("SBI: " + getInterestRate("SBI"));
+        System.out.println("AXIX: " + getInterestRate("AXIX")); // Invalid bank name
+    }
+}
