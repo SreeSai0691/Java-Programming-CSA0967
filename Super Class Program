@@ -1,0 +1,19 @@
+class SuperClass {
+    int memberVariable = 10;
+}
+
+class SubClass extends SuperClass {
+    int memberVariable = 20;
+
+    void display() {
+        System.out.println("Subclass member variable: " + memberVariable);
+        System.out.println("Superclass member variable: " + super.memberVariable);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SubClass obj = new SubClass();
+        obj.display();
+    }
+}
