@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Studentgrades
+{
+public static void main(string args[])
+{
+int marks[]=new int[4];
+int i;
+float total=0,aggregate;
+Scanner scanner=new Scanner(System.in);
+for(i=0;i<4;i++)
+{
+System.out.print("enter marks of subject"+(i+1)+":");
+marks[i]=scanner.nextInt();
+total =total+marks[i];
+}
+scanner.close();
+aggregate=total/4;
+System.out.print("The student grade is :");
+if(aggregate>=80)
+{
+System.out.print("A");
+
+
+}
+else if(aggregate>=60 && aggregate<80)
+{
+System.out.print("B");
+}
+else if(aggregate>=40 && aggregate<60)
+{
+System.out.print("C");
+}
+else
+{
+System.out.print("D");
+}
+}
+}
