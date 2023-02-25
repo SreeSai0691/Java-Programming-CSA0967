@@ -1,0 +1,23 @@
+public class LastWordLength {
+    public static int lengthOfLastWord(String s) {
+        // Remove any trailing spaces from the input string
+        s = s.trim();
+        
+        // Find the index of the last space in the string
+        int lastSpaceIndex = s.lastIndexOf(' ');
+        
+        // If there is no space in the string, the last word is the entire string
+        if (lastSpaceIndex == -1) {
+            return s.length();
+        }
+        
+        // Otherwise, return the length of the substring after the last space
+        return s.length() - lastSpaceIndex - 1;
+    }
+    
+    public static void main(String[] args) {
+        String s = "Hello World";
+        int lastWordLength = lengthOfLastWord(s);
+        System.out.println(lastWordLength);
+    }
+}
