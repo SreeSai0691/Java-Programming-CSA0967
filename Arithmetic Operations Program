@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ArithmeticOperations {
+
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int num1 = input.nextInt();
+        
+        System.out.print("Enter another number: ");
+        int num2 = input.nextInt();
+        
+        try {
+            int sum = num1 + num2;
+            int diff = num1 - num2;
+            int product = num1 * num2;
+            int quotient = num1 / num2; // Division-by-Zero Exception may occur here
+            
+            System.out.println("Sum: " + sum);
+            System.out.println("Difference: " + diff);
+            System.out.println("Product: " + product);
+            System.out.println("Quotient: " + quotient);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+        
+        input.close();
+    }
+}
