@@ -1,0 +1,49 @@
+public class MultiplicationTable implements Runnable {
+
+    private int number;
+
+    public MultiplicationTable(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        try {
+            // The thread starts in the new state
+            System.out.println(Thread.currentThread().getName() + " is in new state.");
+
+            // The thread moves to the runnable state
+            Thread.sleep(1000);
+            System.out.println(Thread.currentThread().getName() + " is in runnable state.");
+
+            // Display the multiplication table
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(number + " X " + i + " = " + (number * i));
+                Thread.sleep(500);
+            }
+
+            // The thread moves to the terminated state
+            System.out.println(Thread.currentThread().getName() + " is in terminated state.");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create two threads for the two multiplication tables
+        Thread thread1 = new Thread(new MultiplicationTable(5));
+        Thread thread2 = new Thread(new MultiplicationTable(10));
+
+        // Start the threads
+        thread1.start();
+        thread2.start();
+
+        // Wait for the threads to finish
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
